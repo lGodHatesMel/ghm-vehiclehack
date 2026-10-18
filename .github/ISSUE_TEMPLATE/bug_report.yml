@@ -1,0 +1,79 @@
+name: Bug report
+description: Something does not work as the README says it should
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you post
+      options:
+        - label: I read the README, including Troubleshooting.
+          required: true
+        - label: I am on the latest release of ghm-vehiclehack.
+          required: true
+        - label: I searched the existing issues and this is not a duplicate.
+          required: true
+        - label: I tested with only this resource's dependencies running, or I name the resource I think conflicts below.
+          required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Use the vehicle_hacker_unlock_usb
+        2. Tag a vehicle
+        3. Run Fuel Leak
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: Which part is affected
+      options:
+        - Installing the app / unlock item
+        - Tagging a vehicle
+        - Aiming at a vehicle
+        - An action (name it below)
+        - Payment / wallet / currency
+        - Standalone mode
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: action_name
+    attributes:
+      label: Action name, if it is an action
+      placeholder: Fuel Leak
+  - type: textarea
+    id: setup
+    attributes:
+      label: Your setup
+      description: Fill in what applies.
+      value: |
+        - Framework (qbx_core / qb-core / es_extended):
+        - Inventory:
+        - Fuel script:
+        - sd-phone version (or standalone):
+        - Server artifact / game build:
+        - Config.Currency.Type:
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Errors
+      description: Server console and F8 client console output. Set `Config.Debug = true` in config.lua for more detail. Do not paste tokens, licenses or private keys.
+      render: shell
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Screenshots, a clip, or other resources that touch vehicles, locks or fuel.

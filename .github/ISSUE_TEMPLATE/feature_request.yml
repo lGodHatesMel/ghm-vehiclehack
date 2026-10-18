@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest a new action, bridge or option
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you post
+      options:
+        - label: I read the README and this is not already a config option.
+          required: true
+        - label: I searched the existing issues and this is not a duplicate.
+          required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of request
+      options:
+        - New action
+        - Support for another inventory, fuel script or framework
+        - New config option
+        - UI change
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What you want
+      description: What it should do, and why the current options do not cover it.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: For another inventory, fuel script or framework, give the resource name and its export or event names for counting or removing items, or getting and setting fuel (a link to its docs is ideal).

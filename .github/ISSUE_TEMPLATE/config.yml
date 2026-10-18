@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the README first
+    url: https://github.com/lGodHatesMel/ghm-vehiclehack#troubleshooting
+    about: Most setup problems (missing icon, item does nothing, wrong currency) are covered under Troubleshooting.
