@@ -20,7 +20,7 @@
 - [ ] New natives were checked against the [native reference](https://github.com/citizenfx/natives), and the parameters and any "call every tick" notes are respected.
 - [ ] A new inventory or fuel script is added to `bridge/inventory.lua` / `bridge/fuel.lua`, with the export names taken from that script's docs or source.
 - [ ] No `backdrop-filter`, no emojis as icons, no debug commands left in.
-- [ ] If `ui/src` changed: `npm run build` was run in `ui/` and `ui/dist` is included.
+- [ ] If `ui/src` changed: `npm run build` passes in `ui/`. `ui/dist` is not committed; the release workflow builds it.
 - [ ] `CHANGELOG.md` is updated.
 
 ## How you tested it

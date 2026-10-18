@@ -46,8 +46,9 @@ sd-phone 1.0.6. On an sd-phone without `useCamera` aiming falls back to the cros
 
 ## Installation
 
-1. Put the `ghm-vehiclehack` folder in your `resources` folder. The UI is already built (`ui/dist`); you only need Node
-   if you want to change it (see [Changing the UI](#changing-the-ui)).
+1. Download the `ghm-vehiclehack-<version>.zip` from the [latest release](https://github.com/lGodHatesMel/ghm-vehiclehack/releases/latest)
+   and put the `ghm-vehiclehack` folder in your `resources` folder. The UI is already built in the zip. If you clone the
+   repo instead, you need to build the UI first (see [Changing the UI](#changing-the-ui)).
 2. Add the items to your inventory (below).
 3. Start it after its dependencies in `server.cfg`:
 
@@ -264,14 +265,20 @@ exports['ghm-vehiclehack']:clearTargets(source)     -- drop everything a player 
 
 ### Changing the UI
 
-The app is React + Tailwind in `ui/`. The built files are in `ui/dist` and are what the game loads.
+The app is React + Tailwind in `ui/`. The game loads the built files in `ui/dist`. That folder is not in the repo; it is
+generated, and the release zips already contain it.
 
 ```bash
 cd ui
 npm install
 npm run dev      # http://localhost:5173, with a mock of the game
-npm run build    # writes ui/dist
+npm run build    # writes ui/dist, which the game loads
 ```
+
+### Making a release
+
+Publish a GitHub Release with a new tag (for example `v2.0.1`). GitHub Actions (`.github/workflows/release.yml`) builds
+the UI and attaches `ghm-vehiclehack-<tag>.zip` to that release.
 
 In the dev server `?mode=standalone` previews the standalone panel, and the address bar picks a scenario:
 `#default`, `#paid`, `#empty`, `#aimonly`, `#taggedonly`, `#offline`. To work on it inside the game, point `ui_page` in

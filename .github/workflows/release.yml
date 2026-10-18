@@ -1,0 +1,44 @@
+name: Release
+
+# Runs when you publish a GitHub Release. Builds the UI and attaches a ready-to-install
+# resource zip (with ui/dist included) to that release.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the tag
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+
+      - name: Build the UI
+        working-directory: ui
+        run: |
+          npm ci
+          npm run build
+
+      - name: Package the resource
+        run: |
+          mkdir -p package/ghm-vehiclehack
+          cp -r fxmanifest.lua config.lua LICENSE README.md CHANGELOG.md bridge client server locales ui package/ghm-vehiclehack/
+          rm -rf package/ghm-vehiclehack/ui/node_modules package/ghm-vehiclehack/ui/src
+          cd package
+          zip -r "../ghm-vehiclehack-${{ github.event.release.tag_name }}.zip" ghm-vehiclehack
+
+      - name: Attach the zip to the release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: ghm-vehiclehack-${{ github.event.release.tag_name }}.zip
