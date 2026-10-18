@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0
+## 1.0.0
 
 A rewrite of how the resource works. Players see the same idea (link to a vehicle, run an action) with a new, simpler
 app, and the server is now in charge of everything that matters.
