@@ -46,9 +46,10 @@ sd-phone 1.0.6. On an sd-phone without `useCamera` aiming falls back to the cros
 
 ## Installation
 
-1. Download the `ghm-vehiclehack-<version>.zip` from the [latest release](https://github.com/lGodHatesMel/ghm-vehiclehack/releases/latest)
-   and put the `ghm-vehiclehack` folder in your `resources` folder. The UI is already built in the zip. If you clone the
-   repo instead, you need to build the UI first (see [Changing the UI](#changing-the-ui)).
+1. **Recommended:** download `ghm-vehiclehack-<version>.zip` from the [latest release](https://github.com/lGodHatesMel/ghm-vehiclehack/releases/latest)
+   and extract the `ghm-vehiclehack` folder into your `resources` folder. The UI is already built.
+   **Building it yourself:** clone the repo instead, then run `npm install && npm run build` in `ui/` before starting the
+   resource (see [Changing the UI](#changing-the-ui)).
 2. Add the items to your inventory (below).
 3. Start it after its dependencies in `server.cfg`:
 
