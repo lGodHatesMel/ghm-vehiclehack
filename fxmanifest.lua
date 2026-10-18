@@ -4,7 +4,7 @@ lua54 'yes'
 
 name 'ghm-vehiclehack'
 author 'GodHatesMe'
-version '2.0.0'
+version '1.0.0'
 description 'Vehicle Hacker: remote vehicle sabotage, control and chaos for sd-phone (or a standalone screen)'
 
 shared_scripts {
